@@ -30,7 +30,7 @@ function App() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/submit-claim', formData);
+      const response = await axios.post('https://opd-backend-1.onrender.com/api/submit-claim', formData);
       setResult(response.data);
     } catch (error) {
       console.error("Error:", error);

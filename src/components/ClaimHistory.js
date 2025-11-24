@@ -9,7 +9,7 @@ const ClaimHistory = () => {
   const [selectedClaim, setSelectedClaim] = useState(null); // State for the modal
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/claims')
+    axios.get('https://opd-backend-1.onrender.com/api/claims')
       .then(res => {
         setClaims(res.data);
         setLoading(false);
@@ -113,7 +113,7 @@ const ClaimHistory = () => {
               <ClaimAnalysis 
                 result={selectedClaim} 
                 // Construct URL to fetch image from backend
-                filePreview={selectedClaim.file_path ? `http://localhost:8000/${selectedClaim.file_path}` : null} 
+                filePreview={selectedClaim.file_path ? `https://opd-backend-1.onrender.com/${selectedClaim.file_path}` : null} 
               />
             </div>
           </div>

@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:8000/api/dashboard-stats')
+    axios.get('https://opd-backend-1.onrender.com/api/dashboard-stats')
       .then(res => setStats(res.data))
       .catch(err => console.error(err));
   }, []);
