@@ -35,14 +35,18 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-slate-800">
-        <button className="w-full flex items-center gap-3 px-4 py-3 text-sm text-slate-400 hover:text-white transition-colors">
-          <Settings size={18} /> Settings
-        </button>
-        <button className="w-full flex items-center gap-3 px-4 py-3 text-sm text-slate-400 hover:text-red-400 transition-colors">
-          <LogOut size={18} /> Logout
-        </button>
-      </div>
+      {/* Footer: User Profile */}
+        <div className="p-4 border-t border-slate-800 shrink-0 bg-slate-900">
+            <div className="flex items-center gap-3 px-2 py-2 rounded-lg hover:bg-slate-800 transition-colors cursor-pointer group">
+            <div className="w-10 h-10 bg-slate-700 rounded-full border-2 border-slate-600 group-hover:border-blue-500 transition-colors shadow-sm overflow-hidden shrink-0">
+                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Vyom" alt="User" />
+            </div>
+            <div className="overflow-hidden">
+                <p className="text-sm font-bold text-white truncate group-hover:text-blue-400 transition-colors">Vyom Rohila</p>
+                <p className="text-xs text-slate-400 truncate">Admin</p>
+            </div>
+            </div>
+        </div>
     </div>
   );
 };

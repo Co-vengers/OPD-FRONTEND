@@ -125,15 +125,7 @@ function App() {
             </h1>
             <p className="text-slate-500">Plum Insurance • OPD Automation Pod</p>
           </div>
-          <div className="flex items-center gap-4">
-             <div className="text-right hidden md:block">
-                <p className="text-sm font-bold text-slate-700">Ritika Vyas</p>
-                <p className="text-xs text-slate-500">Admin</p>
-             </div>
-            <div className="w-10 h-10 bg-slate-200 rounded-full border-2 border-white shadow-sm overflow-hidden">
-               <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Vyom" alt="User" />
-            </div>
-          </div>
+          
         </div>
 
         <div className="flex-1 overflow-y-auto pr-2 pb-10">
