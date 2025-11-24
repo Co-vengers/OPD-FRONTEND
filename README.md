@@ -1,4 +1,4 @@
-# Frontend — README.d
+# Frontend
 
 Purpose
 - Compact developer-focused notes for the frontend build, local dev and containerized deployment.
