@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# Frontend — README.d
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Purpose
+- Compact developer-focused notes for the frontend build, local dev and containerized deployment.
 
-## Available Scripts
+Quick start (local)
+1. Install deps: `npm install`
+2. Start dev server: `npm start` (opens at http://localhost:3000)
 
-In the project directory, you can run:
+Build (production)
+- `npm run build` → produces static assets in `build/`
+- Served in this repo by Nginx in the Docker setup.
 
-### `npm start`
+Docker / Deploy
+- Image built from [frontend/Dockerfile](frontend/Dockerfile). Build+serve steps:
+  - Build: `docker build -t plum_frontend ./frontend`
+  - The container serves files from `/usr/share/nginx/html` using [frontend/nginx.conf](frontend/nginx.conf)
+- Compose: see [docker-compose.yml](docker-compose.yml) for how frontend and backend are wired.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Important files
+- App entry: [frontend/src/index.js](frontend/src/index.js)
+- Top-level app: [frontend/src/App.js](frontend/src/App.js)
+- Components: [frontend/src/components/ClaimHistory.js](frontend/src/components/ClaimHistory.js), [frontend/src/components/ClaimAnalysis.js](frontend/src/components/ClaimAnalysis.js), [frontend/src/components/Sidebar.js](frontend/src/components/Sidebar.js)
+- Styling: [frontend/tailwind.config.js](frontend/tailwind.config.js), [frontend/src/index.css](frontend/src/index.css), [frontend/src/App.css](frontend/src/App.css)
+- Public template: [frontend/public/index.html](frontend/public/index.html)
+- Package metadata: [frontend/package.json](frontend/package.json)
+- Local README (this repo): [frontend/README.md](frontend/README.md)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Env / API
+- Frontend expects the backend API at the URL referenced in code (examples use `https://opd-backend-1.onrender.com`). Update API host in source if running locally.
 
-### `npm test`
+Troubleshooting
+- Build failures: check node version (uses Node 18 in Dockerfile) and installed tailwind/postcss versions in `devDependencies`.
+- CORS: backend config allows all origins; see [Backend/README.md](Backend/README.md) and [docker-compose.yml](docker-compose.yml) for service links.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contact points in repo
+- Backend docs: [Backend/README.md](Backend/README.md)
+- Compose orchestrator: [docker-compose.yml](docker-compose.yml)
